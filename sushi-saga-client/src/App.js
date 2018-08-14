@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SushiContainer from './containers/SushiContainer';
 import Table from './containers/Table';
+import SushiWallet from './components/SushiWallet';
+
 
 // Endpoint!
 const API = "http://localhost:3000/sushis"
@@ -13,11 +15,14 @@ class App extends Component {
     sushi:[]
   }
 
-  // setEaten = () => {
-  //   this.setState({
-  //     eaten:[]
-  //   })
-  // }
+  setBudget = (input) => {
+    console.log("budget", this.state.budget )
+    console.log("input", input)
+
+    this.setState({
+      budget: this.state.budget + parseInt(input)
+    })
+  }
 
   randomSushi = (sushiArr) => {
     let rand = []
@@ -77,6 +82,7 @@ class App extends Component {
           eatSushi={this.eatSushi}
           sushi={this.state.sushi}
           eaten={this.state.eaten}/>
+        <SushiWallet setBudget={this.setBudget}/>
         <Table
           budget={this.state.budget}
           eaten={this.state.eaten}/>

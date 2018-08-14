@@ -7,7 +7,7 @@ const Sushi = ({ eaten, eatSushi,name, id , price, img_url}) => {
       <div className="plate"
            onClick={() => {eatSushi(id, price)}}>
         {
-          eaten.find((e) => e == id)?
+          eaten.includes(id)?
             null
           :
             <img src={img_url} width="100%" />
