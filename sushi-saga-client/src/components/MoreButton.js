@@ -1,9 +1,7 @@
 import React from 'react'
 
-const MoreButton = (props) => {
-    return <button onClick={() => this.props.sushis}>
-            More sushi!
-          </button>
+const MoreButton = ({ handleClick }) => {
+    return <button onClick={ handleClick }>More sushi!</button>
 }
 
 export default MoreButton

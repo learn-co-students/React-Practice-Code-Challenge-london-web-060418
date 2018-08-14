@@ -1,35 +1,21 @@
 import React, { Fragment } from 'react'
 
-class Sushi extends React.Component {
-
-  state={
-    clicked: false
-  }
-
-  handleClick = () => {
-    this.setState({
-      clicked: !this.state.clicked
-    })
-  }
-
-render() {
+const Sushi = ({ sushi, eatSushi, eatenSushis }) => {
   return (
     <div className="sushi">
-      <div className="plate"
-           onClick={this.handleClick}>
-        {
-          this.state.clicked ?
+      <div className="plate" onClick={ () => eatSushi(sushi) }>
+
+        { eatenSushis.includes(sushi) ?
             null
           :
-            <img src={this.props.sushi.img_url} width="100%" />
+            <img src={sushi.img_url} width="100%" />
         }
       </div>
       <h4 className="sushi-details">
-        {this.props.sushi.name} - ${this.props.sushi.price}
+        {sushi.name} - ${sushi.price} ({sushi.id})
       </h4>
     </div>
   )
- }
 }
 
 export default Sushi
